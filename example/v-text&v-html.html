@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-text & v-html</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>v-text & v-html 案例</h1>
+    <hr>
+    <div id="app">
+        <!--
+            若vue对象创建出错  或者  还没加载出来  或  未加载到下面的script
+            {{ message }}是会直接显示成 {{ message }}  而不是 hello Vue
+            而<span v-text="message"></span> 则不会显示出来
+        -->
+        <span>{{ message }}</span>=<span v-text="message"></span><br/>
+        <span v-html="msgHtml"></span>
+    </div>
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello Vue!',
+                msgHtml: '<h2>hello Vue!</h2>'
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>v-for</title>
+</head>
+<body>
+<h1>v-for</h1>
+<hr>
+<div id="app">
+    <ul>
+        <li v-for="item in array" >
+            {{item}}
+        </li>
+        <!--
+            也可以(item,index) in array 遍历数组   index代表的是下标(索引)   item为值
+            item和index的命名可以随意命名   可位置不能换
+        -->
+    </ul>
+    <ul>
+        <!--
+            (value,key) in student用于循环map
+            key为键  value为值
+            变量命名可以自己定义   位置不能换
+        -->
+        <li v-for="(value,key) in student" >
+            {{value}}:{{key}}
+        </li>
+    </ul>
+    <!--
+        对于对象内的属性可以这样取
+
+        也可用于v-for中
+        例如
+        <ul>
+            <li v-for="student in students" >
+                {{student.name}}
+            </li>
+        </ul>
+    -->
+    {{student.name}}
+</div>
+
+<script type="text/javascript">
+    var app=new Vue({
+        el:'#app',
+        data :{
+            array:[1,2,3,4,5,6,7,8,9],
+            student:{
+                name:'小明',
+                age:12,
+                sex:'男'
+            }
+        }
+    })
+</script>
+</body>
+</html>
