@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>vue.set 全局操作</title>
+</head>
+<body>
+    <h1>vue.set 全局操作</h1>
+    <hr>
+    <div id="app">
+        <ul>
+            <li v-for="item in arr">
+                {{item}}
+            </li>
+        </ul>
+    </div>
+    <button onclick="add()">add</button>
+    <script type="text/javascript">
+
+        var outData = {
+            arr:['111','222','333']
+        } ;
+        var app=new Vue({
+            el:'#app',
+            data : outData
+        })
+        function add() {
+            console.log("已经执行了add方法");
+            //outData.arr[1] = '555';
+            Vue.set(app.arr,1,'555');
+            console.log("arr[1] = " + app.arr[1]);
+        }
+    </script>
+</body>
+</html>

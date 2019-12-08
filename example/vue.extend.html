@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>Vue.extend 扩展实例构造器</title>
+</head>
+<body>
+<h1>Vue.extend 扩展实例构造器</h1>
+<hr>
+
+<baidu></baidu>
+<div id="baidu"></div>
+
+<script type="text/javascript">
+    var obj = Vue.extend({
+        template:"<p><a :href='url'>{{message}}</a></p>",
+        //这里的data不像在构造器里写data直接写   而是要写个匿名方法 return一个对象
+        data:function () {
+            return{
+                message:'百度',
+                url:'https://www.baidu.com'
+            }
+        }
+    });
+
+    //所有的扩展器都需要另一个操作 绑定(加载)到上面才可以用
+    //Vue的$mount()为手动挂载
+    //可以像jquery一样绑定
+    new obj().$mount('baidu');//根据标签绑定
+    new obj().$mount('#baidu');//根据id绑定
+</script>
+</body>
+</html>

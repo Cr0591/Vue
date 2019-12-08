@@ -11,17 +11,17 @@
 <div id="app">
 <!--    v-if如果为false   则不加载       可以减轻服务器的压力，在需要时加载-->
 <!--    v-show为false则是修改css样式display="none"  仍然加载    可以使客户端操作更加流畅-->
-    <div v-if="isLogin">你好,欢迎</div>
+    <div v-if="isLogin">你好,欢迎 这是v-if</div>
     <div v-else>请登陆!</div>
 
-    <div v-show="isLogin">你好,欢迎</div>
+    <div v-show="isLogin">你好,欢迎 v-show</div>
 </div>
 
 <script type="text/javascript">
     var app=new Vue({
         el:'#app',
         data:{
-            isLogin: true
+            isLogin: false
         }
     })
 </script>
