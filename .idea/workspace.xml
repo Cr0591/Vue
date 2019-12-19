@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="176f2c3b-9789-42ad-8396-04fc46151107" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/example.html" beforeDir="false" afterPath="$PROJECT_DIR$/example/example.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +81,7 @@
       <workItem from="1575786461529" duration="4103000" />
       <workItem from="1576392502510" duration="591000" />
       <workItem from="1576393920674" duration="1603000" />
-      <workItem from="1576719580549" duration="8655000" />
+      <workItem from="1576719580549" duration="9628000" />
     </task>
     <servers />
   </component>
@@ -111,5 +109,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="926" y="190" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1575528067499" />
+    <state x="501" y="260" width="672" height="678" key="search.everywhere.popup" timestamp="1576771602721">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="501" y="260" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1576771602721" />
   </component>
 </project>
