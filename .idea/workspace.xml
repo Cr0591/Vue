@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="176f2c3b-9789-42ad-8396-04fc46151107" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/debug.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/v-for.html" beforeDir="false" afterPath="$PROJECT_DIR$/example/v-for.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/v-if.html" beforeDir="false" afterPath="$PROJECT_DIR$/example/v-if.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/example.html" beforeDir="false" afterPath="$PROJECT_DIR$/example/example.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +79,11 @@
       <workItem from="1575642032827" duration="1974000" />
       <workItem from="1575648077173" duration="14000" />
       <workItem from="1575682978589" duration="18671000" />
-      <workItem from="1575770380365" duration="3203000" />
+      <workItem from="1575770380365" duration="4573000" />
+      <workItem from="1575786461529" duration="4103000" />
+      <workItem from="1576392502510" duration="591000" />
+      <workItem from="1576393920674" duration="1603000" />
+      <workItem from="1576719580549" duration="8655000" />
     </task>
     <servers />
   </component>

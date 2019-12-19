@@ -912,3 +912,510 @@ function add() {
 
 所以需要用Vue.set(app.arr,1,'555')设置改变，Vue才会重新渲染。
 
+[Vue官方文档Vue.set]( https://cn.vuejs.org/v2/api/#Vue-set )
+
+
+
+## Vue的生命周期
+
+Vue一共有十个生命周期函数，我们可以利用这些函数在Vue的每个阶段都进行操作数据或修改内容。
+
+![lifecycle](./assets/img/readme/lifecycle.png)
+
+Vue官网这张图已经很好的诠释了生命周期。可以看下面的程序再理解下
+
+~~~html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>构造器的声明周期</title>
+</head>
+<body>
+    <h1>构造器的声明周期</h1>
+    <hr>
+    <div id="app">
+        {{n}}
+        <p>
+            <button @click="add">add</button>
+        </p>
+    </div>
+    <button onclick="app.$destroy()">destroy</button>
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data: {
+                n: 1
+            },
+            methods: {
+                add: function () {
+                    this.n++;
+                }
+            },
+            beforeCreate: function () {
+                console.log('1-beforeCreate 初始化之后');
+            },
+            created: function () {
+                console.log('2-created 创建完成');
+            },
+            beforeMount: function () {
+                console.log('3-beforeMount 挂载之前');
+            },
+            mounted: function () {
+                console.log('4-mounted 挂载之后');
+            },
+            beforeUpdate: function () {
+                console.log('5-beforeUpdate 数据更新前');
+            },
+            updated: function () {
+                console.log('6-updated 被更新后');
+            },
+            activated: function () {
+                console.log('7-activated');
+            },
+            deactivated: function () {
+                console.log('8-deactivated');
+            },
+            beforeDestroy: function () {
+                console.log('9-beforeDestroy 销毁之前');
+            },
+            destroyed: function () {
+                console.log('10-destroyed 销毁之后')
+            }
+
+        })
+    </script>
+</body>
+</html>
+~~~
+
+这是点击两次add后，点击一次destroy的结果
+
+![](./assets/img/readme/生命周期.png)
+
+~~~javascript
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            msg: 'OK'
+        },
+        methods: {
+            add: function () {
+                console.log("执行了add方法");
+            }
+        },
+        beforeCreate: function () {
+            /*
+                这是第一个生命周期函数，表示在Vue实例完全创建出来之前会执行它
+                在执行beforeCreate时，data和methods中的数据都还没有被初始化
+            */
+            console.log(this.msg); // undefined
+        },
+        created: function () {
+            /*
+                第二个生命周期函数，在created中，data和methods都已经初始化好了
+                如果要调用methods中的方法或data内的数据，最早只能在created中操作
+            */
+            console.log(this.msg); // OK
+            this.add(); //执行了add方法
+        },
+        beforeMount: function () {
+            /*
+                这是第三个生命周期函数， beforeMount 挂载之前，此时模板已经在内存中编辑完成了，但尚未把模板渲染到页面中
+                也就是在 beforeMount 执行的时候，页面中的元素还没有真正替换过来，只是之前写的模板字符串，即插值表达式
+            */
+            console.log(document.getElementById('dataId').innerText); //{{msg}}
+        },
+        mounted: function () {
+            /*
+                这是第四个生命周期函数，mounted，表示内存中的模板已经真实的挂载到页面中了，用户可以看到渲染好的页面
+                注意：mounted是实例创建期间的最后一个生命周期函数，当执行完mounted后，表示实例别完全创建好了
+                如果要操作元素的DOM操作，最早在mounted中操作
+            */
+            console.log(document.getElementById('dataId').innerText); // OK
+        },
+        beforeUpdate: function () {
+            /*
+                表示 我们的界面显示还没有更新，但是数据已经更新了
+                也就是执行beforeUpdate时，页面中显示的数据还是旧的，但data中的数据已经更新了
+            */
+            console.log("页面中的值：" + document.getElementById("dataId").innerText);   //OK
+            console.log("data中msg的值" + this.msg);   //No
+        },
+        updated: function () {
+            /*
+                执行时，页面中的数据与data中的数据已经同步了
+            */
+            console.log("页面中的值：" + document.getElementById("dataId").innerText);   //No
+            console.log("data中msg的值" + this.msg);   //No
+        },
+        activated: function () {
+            console.log('7-activated');
+        },
+        deactivated: function () {
+            console.log('8-deactivated');
+        },
+        beforeDestroy: function () {
+            /*
+                执行该函数时，Vue实例已经从执行阶段进入了销毁阶段，
+                但是实例上所有的data和methods、过滤器、指令都还可用，此时还没有真正的销毁
+            */
+        },
+        destroyed: function () {
+            /*
+                当执行了该函数时，组件已经完全被销毁，组件中所有的数据、方法、指令、过滤器都已经不可用了
+            */
+        }
+
+    })
+</script>
+~~~
+
+[Vue官方文档-实例生命周期钩子](https://cn.vuejs.org/v2/guide/instance.html#实例生命周期钩子) 
+
+[Vue官方文档-生命周期图示](https://cn.vuejs.org/v2/guide/instance.html#生命周期图示)
+
+## Template制作模板
+
+### 写在选项里的template
+
+在构造器中template选项后面直接编写。但要用反引号`包裹
+
+~~~javascript
+<script type="text/javascript">
+    var app=new Vue({
+        el:'#app',
+        data:{
+            message:'hello Vue!'
+        },
+        template: `
+			<h1 style="color: red">这是选项中的模板</h1>
+        `
+    })
+</script>
+~~~
+
+### template标签中的模板
+
+~~~html
+<template id="demo">
+	<h1 style="color: red">这是Template标签模板</h1>
+</template>
+<script type="text/javascript">
+    var app=new Vue({
+        el:'#app',
+        data:{
+            message:'hello Vue!'
+        },
+        template:"#demo"
+    })
+</script>
+~~~
+
+### 在script标签里的模板
+
+ 这种写模板的方法，可以让模板文件从外部引入。 
+
+~~~javascript
+<script type="x-template" id="demo">
+    <h2 style="color: red">Script标签模板</h2>
+</script>
+<script type="text/javascript">
+    var app=new Vue({
+        el:'#app',
+        data:{
+            message:'hello Vue!'
+        },
+        template:"#demo"
+    })
+</script>
+~~~
+
+在vue-cli的时候还会学到一种xxx.vue的写法。 
+
+[Vue官方文档-template]( https://cn.vuejs.org/v2/api/#template )
+
+## component组件
+
+简单来说，组件就是自定义的标签，即在HYML中没有的标签。
+
+[Vue官方文档-组件注册]( https://cn.vuejs.org/v2/guide/components-registration.html )
+
+### 全局组件
+
+全局组件是在构造器外部通过Vue.component注册的.
+
+这是完整代码
+
+~~~html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>component-1</title>
+</head>
+<body>
+    <h1>component-1</h1>
+    <hr>
+    <div id="app">
+        这是id为app的
+        <cr></cr>
+    </div>
+    <hr>
+    <div id="xxx">
+        这是id为xxx的
+        <cr></cr>
+    </div>
+    <hr>
+    这是不在vue作用域内的
+    <cr></cr>
+    <script type="text/javascript">
+        Vue.component("cr", {
+            template: `<div style="color: red"><h1>这是全局组件</h1></div>`
+        });
+        var app = new Vue({
+            el: '#app'
+        });
+        var vm = new Vue({
+            el: '#xxx'
+        });
+    </script>
+</body>
+</html>
+~~~
+
+![image-20191219094803960](.\assets\img\readme\component-1.png)
+
+组件就是可以将自定义标签替换成模板。
+
+[全局注册](https://cn.vuejs.org/v2/guide/components-registration.html#全局注册)
+
+### 局部组件
+
+既然有全局组件，那么就有局部组件。
+
+~~~html
+<body>
+    <h1>component-1</h1>
+    <hr>
+    <div id="app">
+        这是id为app的
+        <cr></cr>
+        <abc></abc>
+    </div>
+    <script type="text/javascript">
+        Vue.component("cr", {
+            template: `<div style="color: red"><h1>这是全局组件</h1></div>`
+        });
+        var app = new Vue({
+            el: '#app',
+            components:{
+                "abc":{
+                    template: `<div style="color: green"><h2>这是局部组件</h2></div>`
+                }
+            }
+        });
+    </script>
+</body>
+~~~
+
+![image-text](.\assets\img\readme\局部组件.png)
+
+局部组件可以直接在components里写多个。
+
+全局组件则要Vue.component一个一个写。
+
+局部组件只能在当前Vue对象作用域作用。
+
+[局部注册](https://cn.vuejs.org/v2/guide/components-registration.html#局部注册)
+
+### props属性设置
+
+ 组件接受的选项之一 props 是 Vue 中非常重要的一个选项。 
+
+利用props，可以取到自定义标签中设置的属性。
+
+案例：
+
+~~~html
+<body>
+    <h1>component-2</h1>
+    <hr>
+    <div id="app">
+        <abc myname="123"></abc>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            components:{
+                "abc":{
+                    template: `<div style="color: green"><h2>myname is {{myname}}</h2></div>`,
+                    props:['myname']
+                }
+            }
+        });
+    </script>
+</body>
+~~~
+
+结果：
+
+![image-20191219133403043](.\assets\img\readme\props.png)
+
+props可以接受的是一个数组，因为可以有多个属性。只有在props里面写了这个属性，才能在模板里用。
+
+如果属性名是带-的写法，例如my-name 是不行的，Vue不支持这种写法。
+
+即如果属性名是my-name，那么在Vue中则要采取大驼峰的写法(MyName)或小驼峰的写法(myName)
+
+~~~html
+<body>
+    <h1>component-2</h1>
+    <hr>
+    <div id="app">
+        <abc my-name="123"></abc>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            components:{
+                "abc":{
+                    template: `<div style="color: green"><h2>myname is {{myName}}</h2></div>`,
+                    props:['myName']
+                }
+            }
+        });
+    </script>
+</body>
+~~~
+
+my-name="123"my设置除了直接赋值，还可以用v-bind:my-name="mydata"来赋值。mydata就是在vue里定义好的data。
+
+~~~html
+<body>
+    <h1>component-2</h1>
+    <hr>
+    <div id="app">
+        <abc :my-name="vuedata"></abc>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data:{
+                vuedata:"333"
+            },
+            components:{
+                "abc":{
+                    template: `<div style="color: green"><h2>myname is {{myName}}</h2></div>`,
+                    props:['myName']
+                }
+            }
+        });
+    </script>
+</body>
+~~~
+
+[Vue官方文档-prop]( https://cn.vuejs.org/v2/guide/components-props.html )
+
+### 父子组件
+
+- 在构造器外部写局部注册组件 
+
+如果组件的代码量很大，那么组件直接写在构造器里，就很影响构造器的可读性。
+
+组件的代码可以写在构造器外部或者在一个单独的文件里。
+
+例：
+
+~~~html
+<body>
+    <div id="app">
+        <abc></abc>
+    </div>
+    <script type="text/javascript">
+        var abc = {
+            template:`<div style="color: aqua"><h1>这是在构造器外部写的组件</h1></div>`
+        }
+        var app = new Vue({
+            el:'#app',
+            components:{
+                'abc':abc
+            }
+        });
+    </script>
+</body>
+~~~
+
+- 父子组件的嵌套
+
+如果在父组件中想要用子组件，那么必须在父组件中注册子组件。
+
+~~~html
+<body>
+    <div id="app">
+        <father></father>
+    </div>
+    <script type="text/javascript">
+        var son = {
+            template:`
+                <div style="color: red">
+                    <h1>子组件</h1>
+                </div>
+            `
+        }
+        var father = {
+            template:`
+                <div style="color: aqua">
+                    <h1>父组件</h1>
+                    <son></son>
+                </div>
+            `,
+            components: {
+                "son":son
+            }
+        }
+
+        var app = new Vue({
+            el:'#app',
+            components:{
+                'father':father,
+            }
+        });
+    </script>
+</body>
+~~~
+
+### Component标签
+
+component标签是Vue定义的标签。作用是可以动态的使用任何已经注册了的组件。
+
+~~~html
+<body>
+    <div id="app">
+        <component is="componentA"></component>
+    </div>
+    <script type="text/javascript">
+        var componentA = {
+            template :`<div style="color:red;"><h1>这是componentA</h1></div>`
+        }
+        var componentB = {
+            template :`<div style="color:green;"><h1>这是componentB</h1></div>`
+        }
+        var app = new Vue({
+            el:'#app',
+            components:{
+                'componentA':componentA,
+                'componentB':componentB
+            }
+        })
+    </script>
+</body>
+~~~
+
+通过和Vue的普通指令结合，就能够动态更换已经注册的组件了。
+
+[动态组件](https://cn.vuejs.org/v2/guide/components.html#动态组件)

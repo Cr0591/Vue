@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>component-2</title>
+</head>
+<body>
+    <h1>component-2</h1>
+    <hr>
+    <div id="app">
+        <abc :my-name="vuedata"></abc>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data:{
+                vuedata:"333"
+            },
+            components:{
+                "abc":{
+                    template: `<div style="color: green"><h2>myname is {{myName}}</h2></div>`,
+                    props:['myName']
+                }
+            }
+        });
+    </script>
+</body>
+</html>

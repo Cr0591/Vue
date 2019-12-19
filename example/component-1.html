@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>component-1</title>
+</head>
+<body>
+    <h1>component-1</h1>
+    <hr>
+    <div id="app">
+        <cr></cr>
+        <abc></abc>
+    </div>
+    <script type="text/javascript">
+        Vue.component("cr", {
+            template: `<div style="color: red"><h1>这是全局组件</h1></div>`
+        });
+        var app = new Vue({
+            el: '#app',
+            components:{
+                "abc":{
+                    template: `<div style="color: green"><h2>这是局部组件</h2></div>`
+                }
+            }
+        });
+    </script>
+</body>
+</html>
