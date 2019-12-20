@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../assets/js/vue.js"></script>
+    <title>extends</title>
+</head>
+<body>
+    <h1>extends</h1>
+    <hr>
+    <div id="app">
+        <button @click="show">show</button>
+    </div>
+    <script type="text/javascript">
+        var abc = {
+            created:function () {
+                console.log("这是扩展的create");
+            },
+            methods:{
+                show:function () {
+                    console.log("这是扩展的show方法");
+                }
+            },
+        }
+        var app = new Vue({
+            el:'#app',
+            created:function () {
+                console.log("这是构造器的create");
+            },
+            methods:{
+                show:function () {
+                    console.log("这是原生的show方法");
+                }
+            },
+            extends:abc
+        });
+    </script>
+</body>
+</html>

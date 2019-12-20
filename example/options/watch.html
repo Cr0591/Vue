@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../assets/js/vue.js"></script>
+    <title>watch</title>
+</head>
+<body>
+    <div id="app">
+        <div>{{message}}</div>
+        <button @click="addnum">add</button>
+        <button @click="subnum">sub</button>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el:'#app',
+            data:{
+                num:50,
+                message:'num ========== 50'
+            },
+            methods:{
+                addnum:function () {
+                    this.num++;
+                },
+                subnum:function () {
+                    this.num--;
+                }
+            },
+            /*watch:{
+                num:function (newVal,oldVal) {
+                    if (newVal == 50){
+                        this.message = 'num ========== 50';
+                    }else if(newVal > 50){
+                        this.message = 'num >>>>>>>>>> 50';
+                    }else{
+                        this.message = 'num <<<<<<<<<< 50';
+                    }
+                }
+            }*/
+        })
+        app.$watch('num',function (newVal,oldVal) {
+            if (newVal == 50){
+                this.message = 'num ========== 50';
+            }else if(newVal > 50){
+                this.message = 'num >>>>>>>>>> 50';
+            }else{
+                this.message = 'num <<<<<<<<<< 50';
+            }
+        })
+    </script>
+</body>
+</html>

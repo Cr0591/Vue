@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../assets/js/vue.js"></script>
+    <title>delimiters</title>
+</head>
+<body>
+    <h1>delimiters</h1>
+    <hr>
+    <div id="app">
+        ${message}
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el:'#app',
+            data:{
+                message:"你不想努力了？"
+            },
+            delimiters:['${','}']
+        });
+    </script>
+</body>
+</html>

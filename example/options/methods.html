@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../assets/js/vue.js"></script>
+    <title>methods</title>
+</head>
+<body>
+    <h1>methods</h1>
+    <hr>
+    <div id="app">
+        <div>{{message}}</div>
+        <button v-on:click="m1('正常')">btn1</button><br>
+        <abc @click.native="m1('组件')"></abc><br>
+    </div>
+    <button onclick="app.m1('外部')">btn3</button>
+    <script type="text/javascript">
+        var abc = {
+            template : `<button>btn2</button>`
+        }
+        var app = new Vue({
+            el:'#app',
+            data:{
+                message:'',
+            },
+            methods:{
+                m1:function (msg) {
+                    this.message = '这是' + msg + '调用方法';
+
+                }
+            },
+            components:{
+                'abc':abc
+            }
+        });
+    </script>
+</body>
+</html>

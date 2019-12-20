@@ -2,9 +2,9 @@
 
 # Vue的基本指令
 
-[Vue官方网站]( https://vuejs.org/ )
+[Vue官方网站](https://vuejs.org/ )
 
-[Vue官方网站(中文)]( https://cn.vuejs.org/ )
+[Vue官方网站(中文)](https://cn.vuejs.org/ )
 
 什么是指令？
 
@@ -124,7 +124,7 @@ ___写代码时别忘记导入vue.js___
 
 ![Image text](./assets/img/readme/v-ifvsv-show.png)
 
-[Vue官方文档: 条件渲染]( https://cn.vuejs.org/v2/guide/conditional.html )
+[Vue官方文档: 条件渲染](https://cn.vuejs.org/v2/guide/conditional.html )
 
 ## v-for
 
@@ -257,7 +257,7 @@ ___写代码时别忘记导入vue.js___
 
 `item in items`也可以写成`item of items`
 
-[Vue官方文档: 列表渲染]( https://cn.vuejs.org/v2/guide/list.html )
+[Vue官方文档: 列表渲染](https://cn.vuejs.org/v2/guide/list.html )
 
 ## v-text&v-html
 
@@ -306,9 +306,9 @@ v-html :  更新元素的 `innerHTML` 。**注意：内容按普通 HTML 插入 
 
 ![Image-text](./assets/img/readme/v-html.png)
 
-[Vue官方文档 : v-html]( https://cn.vuejs.org/v2/api/#v-html )
+[Vue官方文档 : v-html](https://cn.vuejs.org/v2/api/#v-html )
 
-[HTML]( [https://cn.vuejs.org/v2/guide/syntax.html#%E5%8E%9F%E5%A7%8B-HTML](https://cn.vuejs.org/v2/guide/syntax.html#原始-HTML) )
+[HTML](https://cn.vuejs.org/v2/guide/syntax.html#原始-HTML)
 
 ## v-on
 
@@ -368,7 +368,7 @@ v-on能缩写成@
 
   更多样例可前去Vue官网观看
 
-  [Vue官方文档 : v-on]( https://cn.vuejs.org/v2/api/#v-on )
+  [Vue官方文档 : v-on](https://cn.vuejs.org/v2/api/#v-on )
 
 ## v-model
 
@@ -461,11 +461,11 @@ v-model :  在表单控件`<input>` 、`<textarea>`及`<select>`或者组件上�
 </body>
 ```
 
-[Vue官方文档 v-model]( https://cn.vuejs.org/v2/api/#v-model )
+[Vue官方文档 v-model](https://cn.vuejs.org/v2/api/#v-model )
 
-[Vue官方文档 表单输入绑定]( https://cn.vuejs.org/v2/guide/forms.html )
+[Vue官方文档 表单输入绑定](https://cn.vuejs.org/v2/guide/forms.html )
 
-[Vue官方文档 将原生事件绑定到组件]( https://cn.vuejs.org/v2/guide/forms.html )(可以等看完组件后再看)
+[Vue官方文档 将原生事件绑定到组件](https://cn.vuejs.org/v2/guide/forms.html )(可以等看完组件后再看)
 
 ## v-bind
 
@@ -561,7 +561,7 @@ v-bind 的缩写为:
 
 ![Image-text](./assets/img/readme/v-bind1.png)
 
-[Vue官方文档 : v-bind]( https://cn.vuejs.org/v2/api/#v-bind  )
+[Vue官方文档 : v-bind](https://cn.vuejs.org/v2/api/#v-bind  )
 
 [Vue官方文档 : Class 与 Style 绑定](https://cn.vuejs.org/v2/guide/class-and-style.html)
 
@@ -579,7 +579,7 @@ v-pre
 
 显示结果将会是      {{ this will not be compiled }} 
 
-[Vue官方文档 : v-pre](  https://cn.vuejs.org/v2/api/#v-pre )
+[Vue官方文档 : v-pre](https://cn.vuejs.org/v2/api/#v-pre )
 
 ## v-cloak
 
@@ -592,7 +592,7 @@ v-pre
 
 只有让Vue渲染完成后才会显示该元素
 
-[Vue官方文档 : v-cloak]( https://cn.vuejs.org/v2/api/#v-cloak)
+[Vue官方文档 : v-cloak](https://cn.vuejs.org/v2/api/#v-cloak)
 
 ## v-once
 
@@ -772,9 +772,9 @@ Vue.directive('cr',function (el,binding,vnode) {
 
 **除了 `el` 之外，其它参数都应该是只读的，切勿进行修改。如果需要在钩子之间共享数据，建议通过元素的 [`dataset`](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/dataset) 来进行。**
 
-[Vue官方文档 : Vue.directive]( https://cn.vuejs.org/v2/api/#Vue-directive )
+[Vue官方文档 : Vue.directive](https://cn.vuejs.org/v2/api/#Vue-directive )
 
-[自定义指令]( https://cn.vuejs.org/v2/guide/custom-directive.html )
+[自定义指令](https://cn.vuejs.org/v2/guide/custom-directive.html )
 
 ## Vue.extend
 
@@ -819,7 +819,7 @@ Vue.directive('cr',function (el,binding,vnode) {
 
 ![image-text](./assets/img/readme/Vue.extend.png)
 
-[Vue官方文档 : Vue.extend]( https://cn.vuejs.org/v2/api/#Vue-extend )
+[Vue官方文档 : Vue.extend](https://cn.vuejs.org/v2/api/#Vue-extend )
 
 ## Vue.set
 
@@ -912,7 +912,7 @@ function add() {
 
 所以需要用Vue.set(app.arr,1,'555')设置改变，Vue才会重新渲染。
 
-[Vue官方文档Vue.set]( https://cn.vuejs.org/v2/api/#Vue-set )
+[Vue官方文档Vue.set](https://cn.vuejs.org/v2/api/#Vue-set )
 
 
 
@@ -1142,7 +1142,7 @@ Vue官网这张图已经很好的诠释了生命周期。可以看下面的程�
 
 简单来说，组件就是自定义的标签，即在HYML中没有的标签。
 
-[Vue官方文档-组件注册]( https://cn.vuejs.org/v2/guide/components-registration.html )
+[Vue官方文档-组件注册](https://cn.vuejs.org/v2/guide/components-registration.html )
 
 ### 全局组件
 
@@ -1319,7 +1319,7 @@ my-name="123"my设置除了直接赋值，还可以用v-bind:my-name="mydata"来
 </body>
 ~~~
 
-[Vue官方文档-prop]( https://cn.vuejs.org/v2/guide/components-props.html )
+[Vue官方文档-prop](https://cn.vuejs.org/v2/guide/components-props.html)
 
 ### 父子组件
 
@@ -1419,3 +1419,562 @@ component标签是Vue定义的标签。作用是可以动态的使用任何已�
 通过和Vue的普通指令结合，就能够动态更换已经注册的组件了。
 
 [动态组件](https://cn.vuejs.org/v2/guide/components.html#动态组件)
+
+## 构造器选项
+
+### porpsData
+
+porpsData用在全局扩展时进行传递数据。但在实际中，并不经常用全局扩展的方式作自定义标签。这里只是为了演示propsData。
+
+[全局扩展的知识](##Vue.extend)
+
+
+
+ 我们要在挂载时传递一个数字过去，我们就用到了propsData。 
+
+我们用propsData三步解决传值：
+
+1. 在全局扩展里加入props进行接收。propsData:{a:1}
+
+2. 传递时用propsData进行传递。props:[‘a’]
+
+3. 用插值的形式写入模板。{{ a }} 
+
+   完整代码： 
+
+~~~html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>propsData</title>
+</head>
+<body>
+
+    <h1>propsData</h1>
+    <hr>
+    <baidu></baidu>
+
+    <script type="text/javascript">
+        var obj = Vue.extend({
+            template:"<p><a :href='url'>{{a}}{{message}}</a></p>",
+            data:function () {
+                return{
+                    message:'百度',
+                    url:'https://www.baidu.com'
+                }
+            },
+            props:['a']
+        });
+
+        //propsData是用来传值的
+        //用propsData传递时要用props进行接受
+        //用插值的形式写入模板
+        new obj({propsData:{a:"这是一个"}}).$mount('baidu');//根据标签绑定
+    </script>
+</body>
+</html>
+~~~
+
+[Vue官方文档-propsData](https://cn.vuejs.org/v2/api/#propsData )
+
+### computed
+
+模板内的表达式非常便利，但是设计它们的初衷是用于简单运算的。在模板中放入太多的逻辑会让模板过重且难以维护。 
+
+computed的作用是对原数据进行改造输出。 所以，对于任何复杂逻辑，你都应当使用**计算属性**。 
+
+例： 
+
+~~~html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>computed</title>
+</head>
+<body>
+    <h1>propsData</h1>
+    <!--computed 的作用主要是对原数据进行改造输出。改造输出：包括格式的编辑，大小写转换，顺序重排，添加符号……。-->
+    <hr>
+    <div id="app">
+        price = {{price}}<br>
+        newPrice = {{newPrice}}
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el:'#app',
+            data:{
+                price:1000
+            },
+            computed:{
+                newPrice:function () {
+                    return '￥' + this.price + '元';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+~~~
+
+或者
+
+~~~html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>computed</title>
+</head>
+<body>
+    <h1>propsData</h1>
+    <hr>
+    <div id="app">
+        <div>newsList</div>
+        <ol>
+            <li v-for="item of newsList">{{item.title}}</li>
+        </ol>
+
+        <div>reverseNews</div>
+        <ol>
+            <li v-for="item of reverseNews">{{item.title}}</li>
+        </ol>
+    </div>
+    <script type="text/javascript">
+        var newsList = [
+            {title:'一箭九星 中国成功发射中巴地球资源卫星04A星等9颗卫星',date:'2019/12/19'},
+            {title:'法工委发言人：有意见建议“同性婚姻合法化”写入民法典',date:'2019/12/20'},
+            {title:'二手房业主“抱团”抬价 多个楼盘猛涨几十万 官方出手',date:'2019/12/21'}
+        ];
+        var app = new Vue({
+            el:'#app',
+            data:{
+                price:1000,
+                newsList:newsList
+            },
+            computed:{
+                newPrice:function () {
+                    return '￥' + this.price + '元';
+                },
+                reverseNews:function () {
+                    return this.newsList.reverse();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+~~~
+
+出现的效果是
+
+![image-20191220153959209](.\assets\img\readme\computed.png)
+
+原来的newsList应该为
+
+![image-20191220154107384](C:\Users\Lemon\WebstormProjects\Vue\assets\img\readme\computed1.png)
+
+之所以会出现上面的情况是因为javascript的reverse()方法会改变原数组
+
+[Vue官方文档-computed](https://cn.vuejs.org/v2/guide/computed.html )
+
+[Vue官方文档- 计算属性](https://cn.vuejs.org/v2/guide/computed.html#计算属性)
+
+### methods
+
+在之前，就已经使用过了构造器中的methods选项了。
+
+下面将介绍下这个选项涉及到的东西。
+
+- 一般正常调用是这样的
+
+~~~html
+<button v-on:click="m1('正常')">btn1</button><br>
+~~~
+
+- 在实际开发中经常需要把某个按钮封装成组件，然后反复使用，如何让组件调用构造器里的方法，而不是组件里的方法。 则需要记得加.native 修饰器 
+
+~~~html
+<abc @click.native="m1('组件')"></abc><br>
+~~~
+
+- 如果是在Vue的外部调用
+
+~~~html
+<button onclick="app.m1('外部')">btn3</button>
+~~~
+
+完整代码
+
+~~~html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <title>methods</title>
+</head>
+<body>
+    <h1>methods</h1>
+    <hr>
+    <div id="app">
+        <div>{{message}}</div>
+        <button v-on:click="m1('正常')">btn1</button><br>
+        <abc @click.native="m1('组件')"></abc><br>
+    </div>
+    <button onclick="app.m1('外部')">btn3</button>
+    <script type="text/javascript">
+        var abc = {
+            template : `<button>btn2</button>`
+        }
+        var app = new Vue({
+            el:'#app',
+            data:{
+                message:'',
+            },
+            methods:{
+                m1:function (msg) {
+                    this.message = '这是' + msg + '调用方法'
+                }
+            },
+            components:{
+                'abc':abc
+            }
+        });
+    </script>
+</body>
+</html>
+~~~
+
+- methods中的$event参数
+
+ 传递的$event参数都是关于你点击鼠标的一些事件和属性。 
+
+~~~html
+<button v-on:click="m1('正常',$event)">btn1</button>
+~~~
+
+只需要这样就可以将event对象传递进去。
+
+~~~javascript
+methods:{
+                m1:function (msg,event) {
+                    this.message = '这是' + msg + '调用方法';
+                    console.log(event);
+                }
+            },
+~~~
+
+ [Vue官方文档-methods](https://cn.vuejs.org/v2/api/#methods)
+
+### watch
+
+**watch，它可以用来监测Vue实例上的数据变动。**
+
+如果对应一个对象，键是观察表达式，值是对应回调，值也可以是方法名，或者是对象，包含选项。
+
+案例：当num为50时输出num ========== 50，小于时则输出num <<<<<<<<<< 50，大于时则输出num >>>>>>>>>> 50
+
+~~~html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../assets/js/vue.js"></script>
+    <title>watch</title>
+</head>
+<body>
+    <div id="app">
+        <div>{{message}}</div>
+        <button @click="addnum">add</button>
+        <button @click="subnum">sub</button>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el:'#app',
+            data:{
+                num:50,
+                message:'num ========== 50'
+            },
+            methods:{
+                addnum:function () {
+                    this.num++;
+                },
+                subnum:function () {
+                    this.num--;
+                }
+            },
+            watch:{
+                num:function (newVal,oldVal) {
+                    if (newVal == 50){
+                        this.message = 'num ========== 50';
+                    }else if(newVal > 50){
+                        this.message = 'num >>>>>>>>>> 50';
+                    }else{
+                        this.message = 'num <<<<<<<<<< 50';
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
+~~~
+
+~~~javascript
+function (newVal,oldVal)
+~~~
+
+方法中的参数，则可以取到这个值的新值(newVal)和旧值(oldVal)。
+
+还可以用实例属性写watch监控
+
+~~~javascript
+app.$watch('xxx',function(){})
+~~~
+
+~~~javascript
+app.$watch('num',function (newVal,oldVal) {
+	if (newVal == 50){
+		this.message = 'num ========== 50';
+	}else if(newVal > 50){
+		this.message = 'num >>>>>>>>>> 50';
+	}else{
+		this.message = 'num <<<<<<<<<< 50';
+	}
+})
+~~~
+
+[Vue官方文档-watch](https://cn.vuejs.org/v2/api/#watch)
+
+### mixins
+
+minxins一般有两种用途:
+
+1. 在你写好构造器后，需要增加方法，这时用混入会减少对源代码的污染。
+2. 很多地方都会用到的公用方法，用混入的方法可以减少代码
+   量，实现代码复用。
+
+混入可以接受的是一个数组。
+
+案例：
+
+~~~html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../assets/js/vue.js"></script>
+    <title>mixins</title>
+</head>
+<body>
+    <div id="app">
+        <div>{{num}}</div>
+        <button @click="add">add</button>
+    </div>
+    <script type="text/javascript">
+        var addConsole = {
+            updated:function () {
+                console.log("num数据发生变化，变成了"+this.num);
+            }//这个updated是生命周期的updated   而不是mixins特有
+        }
+        var app = new Vue({
+            el:'#app',
+            data:{
+                num:10
+            },
+            methods:{
+                add:function () {
+                    this.num++;
+                }
+            },
+            mixins:[addConsole]
+        })
+    </script>
+</body>
+</html>
+~~~
+
+
+
+![image-20191220172104088](.\assets\img\readme\mixins.png)
+
+- mixins的调用顺序
+
+ 从执行的先后顺序来说，都是混入的先执行，然后构造器里的再执行，需要注意的是，这并不是方法的覆盖，而是被执行了两边。 
+
+如果构造器中增加了updated
+
+~~~javascript
+var app = new Vue({
+    el:'#app',
+    data:{
+        num:10
+    },
+    updated:function(){
+        console.log("数据更新了");
+    },
+    methods:{
+        add:function () {
+            this.num++;
+        }
+    },
+    mixins:[addConsole]
+})
+~~~
+
+![image-20191220172716847](.\assets\img\readme\mixins-1.png)
+
+- 全局API混入
+
+我们也可以定义全局的混入，这样在需要这段代码的地方直接引入js，就可以拥有这个功能了。 
+
+ PS：全局混入的执行顺序要优先于混入和构造器里的方法。 
+
+~~~html
+<body>
+    <div id="app">
+        <div>{{num}}</div>
+        <button @click="add">add</button>
+    </div>
+    <script type="text/javascript">
+
+        var addConsole = {
+            updated:function () {
+                console.log("num数据发生变化，变成了"+this.num);
+            }//这个updated是生命周期的updated   而不是mixins特有
+        }
+        Vue.mixin({
+            updated:function () {
+                console.log("这是全局混入");
+            }
+        })
+        var app = new Vue({
+            el:'#app',
+            data:{
+                num:10
+            },
+            updated:function(){
+                console.log("数据更新了");
+            },
+            methods:{
+                add:function () {
+                    this.num++;
+                }
+            },
+            mixins:[addConsole]
+        })
+
+    </script>
+</body>
+~~~
+
+
+
+![image-20191220173120945](.\assets\img\readme\mixins-2.png)
+
+如果mixins中和构造器有相同的方法，则会先执行构造器中的方法。
+
+![image-text](.\assets\img\readme\mixins-3.png)
+
+[Vue官方文档-mixins](https://cn.vuejs.org/v2/api/#mixins)
+
+### extends
+
+ 允许声明扩展另一个组件(可以是一个简单的选项对象或构造函数)，而无需使用 `Vue.extend`。这主要是为了便于扩展单文件组件。 
+
+和mixins类似
+
+~~~html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../assets/js/vue.js"></script>
+    <title>extends</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="show">show</button>
+    </div>
+    <script type="text/javascript">
+        var abc = {
+            created:function () {
+                console.log("这是扩展的create");
+            },
+            methods:{
+                show:function () {
+                    console.log("这是扩展的show方法");
+                }
+            },
+        }
+        var app = new Vue({
+            el:'#app',
+            created:function () {
+                console.log("这是构造器的create");
+            },
+            methods:{
+                show:function () {
+                    console.log("这是原生的show方法");
+                }
+            },
+            extends:abc
+        });
+    </script>
+</body>
+</html>
+~~~
+
+
+
+![image-20191220200227899](.\assets\img\readme\extends.png)
+
+和mixins一样的是，若出现同名方法时，则会执行构造器中的方法。
+
+不过extends只能接受一个对象，而mixins可以接受一个数组。
+
+[Vue官方文档-extends](https://cn.vuejs.org/v2/api/#extends )
+
+###  delimiters 
+
+delimiters 的作用是 改变纯文本插入分隔符。 
+
+即原来用{{message}}取值
+
+可以通过delimiters 修改成${message}取值
+
+~~~html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../assets/js/vue.js"></script>
+    <title>delimiters</title>
+</head>
+<body>
+    <h1>delimiters</h1>
+    <hr>
+    <div id="app">
+        ${message}
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el:'#app',
+            data:{
+                message:"你不想努力了？"
+            },
+            delimiters:['${','}']
+        });
+    </script>
+</body>
+</html>
+~~~
+
+
+
+[Vue官方文档-delimiters](https://cn.vuejs.org/v2/api/#delimiters)
+

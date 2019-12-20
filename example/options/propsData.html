@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../assets/js/vue.js"></script>
+    <title>propsData</title>
+</head>
+<body>
+
+    <h1>propsData</h1>
+    <hr>
+    <baidu></baidu>
+
+    <script type="text/javascript">
+        var obj = Vue.extend({
+            template:"<p><a :href='url'>{{a}}{{message}}</a></p>",
+            data:function () {
+                return{
+                    message:'百度',
+                    url:'https://www.baidu.com'
+                }
+            },
+            props:['a']
+        });
+
+        //propsData是用来传值的
+        //用propsData传递时要用props进行接受
+        //用插值的形式写入模板
+        new obj({propsData:{a:"这是一个"}}).$mount('baidu');//根据标签绑定
+    </script>
+</body>
+</html>
