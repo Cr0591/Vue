@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../assets/js/vue.js"></script>
+    <title>$mount</title>
+</head>
+<body>
+<h1>$mount</h1>
+<hr>
+<div id="app">
+    {{message}}
+</div>
+
+<script type="text/javascript">
+    var abc = Vue.extend({
+        template:`<h3><p>{{message}}</p></h3>`,
+        data:function () {
+            return {
+                message:'hello abc'
+            }
+        }
+    })
+    var app = new abc().$mount('#app');
+</script>
+</body>
+</html>

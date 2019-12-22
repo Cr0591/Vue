@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../assets/js/vue.js"></script>
+    <title>Event</title>
+</head>
+<body>
+    <h1>$destroy</h1>
+    <hr>
+    <div id="app">
+        {{message}}
+        <div><button onclick="add()">add</button></div>
+    </div>
+    <div><button onclick="addonce()">addonce</button></div>
+    <div><button onclick="off()">off</button></div>
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message:'hello Vue!'
+            }
+        })
+        app.$once('addonce',function () {
+            this.message += "addonce"
+        })
+        app.$on('add',function () {
+            this.message += "123"
+        })
+        function add() {
+            app.$emit('add')
+        }
+        function addonce() {
+            app.$emit('addonce')
+        }
+        function off() {
+            app.$off('add');
+        }
+    </script>
+</body>
+</html>

@@ -1677,7 +1677,7 @@ methods:{
 
 如果对应一个对象，键是观察表达式，值是对应回调，值也可以是方法名，或者是对象，包含选项。
 
-案例：当num为50时输出num ========== 50，小于时则输出num <<<<<<<<<< 50，大于时则输出num >>>>>>>>>> 50
+案例：当num为50时输出`num ========== 50`，小于时则输出`num <<<<<<<<<< 50`，大于时则输出`num >>>>>>>>>> 50`
 
 ~~~html
 <!DOCTYPE html>
@@ -1974,7 +1974,366 @@ delimiters 的作用是 改变纯文本插入分隔符。
 </html>
 ~~~
 
-
-
 [Vue官方文档-delimiters](https://cn.vuejs.org/v2/api/#delimiters)
+
+# 实例和内置组件
+
+## Vue和jQuery一起使用
+
+~~~html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../assets/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/vue.js"></script>
+    <title>jQuery</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <hr>
+    <div id="app">
+        {{message}}
+    </div>
+
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message:'hello Vue!'
+            },//只有在mounted和update里才能用jQuery进行工作
+            //没挂载前是找不到dom的   所以没法使用
+            mounted:function () {//在vue里用jQuery必须在挂载以后
+                $('#app').html("jQuery!");
+            }
+        })
+    </script>
+</body>
+</html>
+~~~
+
+## 构造器外部调用方法
+
+~~~html
+<script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message:'hello Vue!'
+            },
+            methods:{
+                show:function () {
+                    console.log("调用了show方法");
+                }
+            }
+        })
+        app.show();
+    </script>
+~~~
+
+ PS：我们有可能把`app.show()`的括号忘记或省略，这时候我们得到的就是方法的字符串，但是并没有执行，所以必须要加上括号。 
+
+## 实例方法
+
+### $mount
+
+在[Vue.extend](##Vue.extend)中就已经出现过一次了。
+
+~~~html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../assets/js/vue.js"></script>
+    <title>$mount</title>
+</head>
+<body>
+<h1>$mount</h1>
+<hr>
+<div id="app">
+    {{message}}
+</div>
+
+<script type="text/javascript">
+    var abc = Vue.extend({
+        template:`<h3><p>{{message}}</p></h3>`,
+        data:function () {
+            return {
+                message:'hello abc'
+            }
+        }
+    })
+    var app = new abc().$mount('#app');
+</script>
+</body>
+</html>
+~~~
+
+[Vue官方文档-$mount](https://cn.vuejs.org/v2/api/#vm-mount)
+
+### $destroy
+
+用$destroy销毁实例。 清理它与其它实例的连接，解绑它的全部指令及事件监听器。 
+
+~~~html
+<body>
+    <h1>$destroy</h1>
+    <hr>
+    <div id="app">
+        {{message}}
+        <div><button @click="add">add</button></div>
+        <div><button onclick="destroy()">destroy</button></div>
+    </div>
+
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message:'hello Vue!'
+            },
+            methods:{
+                add:function () {
+                    this.message += "123"
+                }
+            }
+        })
+        function destroy() {
+            app.$destroy();
+        }
+    </script>
+</body>
+~~~
+
+[Vue官方文档-$destroy](https://cn.vuejs.org/v2/api/#vm-destroy)
+
+### $forceUpdate
+
+ 迫使 Vue 实例重新渲染。注意它仅仅影响实例本身和插入插槽内容的子组件，而不是所有子组件。 
+
+~~~javascript
+app.$forceUpdate()
+~~~
+
+[Vue官方文档-$forceUpdate](https://cn.vuejs.org/v2/api/#vm-forceUpdate)
+
+### $nextTick 
+
+当Vue构造器里的data值被修改完成后会调用这个方法，也相当于一个钩子函数吧，和构造器里的updated生命周期很像。 
+
+~~~javascript
+function tick(){
+    vm.message="update message info ";
+    vm.$nextTick(function(){
+        console.log('message更新完后我被调用了');
+    })
+}
+~~~
+
+[Vue官方文档-$nextTick](https://cn.vuejs.org/v2/api/#vm-nextTick )
+
+## 实例事件
+
+实例事件就是在构造器外部写一个调用构造器内部的方法。这样写的好处是可以通过这种写法在构造器外部调用构造器内部的数据。
+
+### $on
+
+ **用法**：  监听当前实例上的自定义事件。事件可以由`vm.$emit`触发。回调函数会接收所有传入事件触发函数的额外参数。 
+
+~~~javascript
+app.$on('add',function () {
+	this.message += "123"
+})
+~~~
+
+要利用$emit来触发。 
+
+~~~javascript
+function add() {
+	app.$emit('add')
+}
+~~~
+
+ [Vue官方文档-$on](https://cn.vuejs.org/v2/api/#vm-on) 
+
+###  $once 
+
+**用法**：
+
+监听一个自定义事件，但是只触发一次。一旦触发之后，监听器就会被移除。
+
+~~~javascript
+app.$once('addonce',function () {
+    this.message += "addonce"
+})
+function addonce() {
+    app.$emit('addonce')
+}
+~~~
+
+ [Vue官方文档-$once](https://cn.vuejs.org/v2/api/#vm-once) 
+
+###  $off 
+
+**用法**：
+
+移除自定义事件监听器。
+
+- 如果没有提供参数，则移除所有的事件监听器；
+- 如果只提供了事件，则移除该事件所有的监听器；
+- 如果同时提供了事件与回调，则只移除这个回调的监听器。
+
+~~~javascript
+function off() {
+    app.$off('add');
+}
+~~~
+
+[Vue官方文档-$off](https://cn.vuejs.org/v2/api/#vm-off ) 
+
+### $emit
+
+[Vue官方文档-$emit](https://cn.vuejs.org/v2/api/#vm-emit)
+
+## slot
+
+###  匿名插槽
+
+~~~html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../assets/js/vue.js"></script>
+    <title>slot</title>
+</head>
+<body>
+    <div id="app">
+        <abc><p style="color: green">{{message}}</p></abc>
+    </div>
+    <template id="tmp">
+        <div>
+            <h1>
+                <slot></slot>
+            </h1>
+        </div>
+    </template>
+    <script type="text/javascript">
+        var abc = {
+            template:'#tmp'
+        }
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message:'HelloVue'
+            },
+            components:{
+                'abc':abc
+            }
+        })
+    </script>
+</body>
+</html>
+~~~
+
+展示出的效果是
+
+![image-20191222214205885](.\assets\img\readme\slot.png)
+
+只用单个slot标签则会将abc标签中包裹的所有内容都插入。
+
+### 具名插槽
+
+现在Vue构造器里的data放了这些信息：
+
+~~~javascript
+data:{
+    baidu:{
+        netName:'百度',
+        url:'https://www.baidu.com'
+    }
+},
+~~~
+
+ 我们用`<template></template>`标签的方式定义了组件： 
+
+~~~html
+<template id="tmp">
+    <div>
+        <p>网站地址：</p>
+        <p>网站名：</p>
+    </div>
+</template>
+~~~
+
+我们现在就可以用slot功能让组件接收传递过来的值，并在模板中接收显示。
+
+slot的使用需要两步： 1、在HTML的组件中用slot属性传递值。
+
+~~~html
+<baidu>
+    <span slot="netName">{{baidu.netName}}</span>
+    <span slot="url">{{baidu.url}}</span>
+</baidu>
+~~~
+
+ 2、在组件模板中用标签接收值。 
+
+~~~html
+<template id="tmp">
+    <div>
+        <p>网站地址：<slot name="netName"></slot></p>
+        <p>网站名：<slot name="url"></slot></p>
+    </div>
+</template>
+~~~
+
+完整代码
+
+~~~html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../assets/js/vue.js"></script>
+    <title>slot</title>
+</head>
+<body>
+    <div id="app">
+        <baidu>
+            <span slot="netName">{{baidu.netName}}</span>
+            <span slot="url">{{baidu.url}}</span>
+        </baidu>
+    </div>
+    <template id="tmp">
+        <div>
+            <p>网站地址：<slot name="netName"></slot></p>
+            <p>网站名：<slot name="url"></slot></p>
+        </div>
+    </template>
+    <script type="text/javascript">
+        var abc = {
+            template:'#tmp'
+        }
+        var app=new Vue({
+            el:'#app',
+            data:{
+                baidu:{
+                    netName:'百度',
+                    url:'https://www.baidu.com'
+                }
+            },
+            components:{
+                'baidu':abc
+            }
+        })
+    </script>
+</body>
+</html>
+~~~
+
+![image-20191222215448516](.\assets\img\readme\slot1.png)
+
+[Vue官方文档-插槽](https://cn.vuejs.org/v2/guide/components-slots.html)
+
+[Vue官方文档-slot](https://cn.vuejs.org/v2/api/#slot-废弃)
 

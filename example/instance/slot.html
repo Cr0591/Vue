@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../assets/js/vue.js"></script>
+    <title>slot</title>
+</head>
+<body>
+    <div id="app">
+        <baidu>
+            <span slot="netName">{{baidu.netName}}</span>
+            <span slot="url">{{baidu.url}}</span>
+        </baidu>
+    </div>
+    <template id="tmp">
+        <div>
+            <p>网站地址：<slot name="netName"></slot></p>
+            <p>网站名：<slot name="url"></slot></p>
+        </div>
+    </template>
+    <script type="text/javascript">
+        var abc = {
+            template:'#tmp'
+        }
+        var app=new Vue({
+            el:'#app',
+            data:{
+                baidu:{
+                    netName:'百度',
+                    url:'https://www.baidu.com'
+                }
+            },
+            components:{
+                'baidu':abc
+            }
+        })
+    </script>
+</body>
+</html>

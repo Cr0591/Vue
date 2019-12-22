@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../assets/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../../assets/js/vue.js"></script>
+    <title>jQuery</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <hr>
+    <div id="app">
+        {{message}}
+    </div>
+
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message:'hello Vue!'
+            },//只有在mounted和update里才能用jQuery进行工作
+            //没挂载前是找不到dom的   所以没法使用
+            mounted:function () {//在vue里用jQuery必须在挂载以后
+                $('#app').html("jQuery!");
+            },
+            methods:{
+                show:function () {
+                    console.log("调用了show方法");
+                }
+            }
+        })
+        app.show();
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="../../assets/js/vue.js"></script>
+    <title>$forceUpdate</title>
+</head>
+<body>
+    <h1>$forceUpdate</h1>
+    <hr>
+    <div id="app">
+        {{message}}
+    </div>
+    <button onclick="refresh()">refresh</button>
+
+    <script type="text/javascript">
+        var app=new Vue({
+            el:'#app',
+            data:{
+                message:'hello Vue!'
+            },
+            updated:function () {
+                console.log("数据更新了")
+            }
+        })
+        function refresh(){
+            app.$forceUpdate()
+        }
+    </script>
+</body>
+</html>
