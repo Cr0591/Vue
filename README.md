@@ -1223,7 +1223,7 @@ Vue官网这张图已经很好的诠释了生命周期。可以看下面的程�
 </body>
 ~~~
 
-![image-text](.\assets\img\readme\局部组件.png)
+![image-text](./assets/img/readme/局部组件.png)
 
 局部组件可以直接在components里写多个。
 
@@ -1264,7 +1264,7 @@ Vue官网这张图已经很好的诠释了生命周期。可以看下面的程�
 
 结果：
 
-![image-20191219133403043](.\assets\img\readme\props.png)
+![image-20191219133403043](./assets/img/readme/props.png)
 
 props可以接受的是一个数组，因为可以有多个属性。只有在props里面写了这个属性，才能在模板里用。
 
@@ -1572,7 +1572,7 @@ computed的作用是对原数据进行改造输出。 所以，对于任何复�
 
 出现的效果是
 
-![image-20191220153959209](.\assets\img\readme\computed.png)
+![image-20191220153959209](./assets/img/readme/computed.png)
 
 原来的newsList应该为
 
@@ -1801,7 +1801,7 @@ minxins一般有两种用途:
 
 
 
-![image-20191220172104088](.\assets\img\readme\mixins.png)
+![image-20191220172104088](./assets/img/readme/mixins.png)
 
 - mixins的调用顺序
 
@@ -1827,7 +1827,7 @@ var app = new Vue({
 })
 ~~~
 
-![image-20191220172716847](.\assets\img\readme\mixins-1.png)
+![image-20191220172716847](./assets/img/readme/mixins-1.png)
 
 - 全局API混入
 
@@ -1875,11 +1875,11 @@ var app = new Vue({
 
 
 
-![image-20191220173120945](.\assets\img\readme\mixins-2.png)
+![image-20191220173120945](./assets/img/readme/mixins-2.png)
 
 如果mixins中和构造器有相同的方法，则会先执行构造器中的方法。
 
-![image-text](.\assets\img\readme\mixins-3.png)
+![image-text](./assets/img/readme/mixins-3.png)
 
 [Vue官方文档-mixins](https://cn.vuejs.org/v2/api/#mixins)
 
@@ -1931,7 +1931,7 @@ var app = new Vue({
 
 
 
-![image-20191220200227899](.\assets\img\readme\extends.png)
+![image-20191220200227899](./assets/img/readme/extends.png)
 
 和mixins一样的是，若出现同名方法时，则会执行构造器中的方法。
 
@@ -2237,7 +2237,7 @@ function off() {
 
 展示出的效果是
 
-![image-20191222214205885](.\assets\img\readme\slot.png)
+![image-20191222214205885](./assets/img/readme/slot.png)
 
 只用单个slot标签则会将abc标签中包裹的所有内容都插入。
 
@@ -2331,7 +2331,7 @@ slot的使用需要两步： 1、在HTML的组件中用slot属性传递值。
 </html>
 ~~~
 
-![image-20191222215448516](.\assets\img\readme\slot1.png)
+![image-20191222215448516](./assets/img/readme/slot1.png)
 
 [Vue官方文档-插槽](https://cn.vuejs.org/v2/guide/components-slots.html)
 
